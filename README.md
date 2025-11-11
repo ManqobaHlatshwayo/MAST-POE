@@ -78,7 +78,8 @@ expo start
 
 Open the app in **Expo Go** on a phone or emulator.
 
-## Video Demonstration (To Be Submitted)
+## Video Demonstration 
+https://youtube.com/shorts/VQABY_RhbHs?si=h_wSMnE1gC4Bi7VI
 
 The video will include:
 1. Splash screen opening
