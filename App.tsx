@@ -40,7 +40,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Served with berries, maple syrup and whipped cream',
     course: 'Breakfast',
     price: 85,
-    image: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800',
+    image: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: '2',
@@ -48,7 +48,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Egg omelette with spinach, feta cheese, and tomatoes',
     course: 'Breakfast',
     price: 70,
-    image: 'https://images.unsplash.com/photo-1604908177225-2f3a04e3b6fb?w=800',
+    image: 'https://images.unsplash.com/photo-1677844592730-ce9c936d8f1a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
   },
   {
     id: '3',
@@ -56,7 +56,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Fluffy pancakes topped with syrup and butter',
     course: 'Breakfast',
     price: 78,
-    image: 'https://images.unsplash.com/photo-1587732056641-090d3d39a9d0?w=800',
+    image: 'https://images.unsplash.com/photo-1612182062633-9ff3b3598e96?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=719',
   },
 
   // Lunch (3)
@@ -66,7 +66,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Grilled chicken, crispy lettuce, and parmesan in a soft wrap',
     course: 'Lunch',
     price: 95,
-    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=800',
+    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: '5',
@@ -74,7 +74,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Juicy grilled beef patty with cheese and chips',
     course: 'Lunch',
     price: 120,
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=800',
+    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: '6',
@@ -82,7 +82,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Fresh tomatoes, cucumber, olives, and feta',
     course: 'Lunch',
     price: 85,
-    image: 'https://images.unsplash.com/photo-1565895405138-6c3a092c41db?w=800',
+    image: 'https://images.unsplash.com/photo-1599021419847-d8a7a6aba5b4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=679',
   },
 
   // Dinner (3)
@@ -92,7 +92,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Fresh Atlantic salmon with lemon butter sauce',
     course: 'Dinner',
     price: 185,
-    image: 'https://images.unsplash.com/photo-1485921325833-c519f76c4927?w=800',
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
   },
   {
     id: '8',
@@ -100,7 +100,7 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Sirloin steak with creamy mashed potatoes',
     course: 'Dinner',
     price: 210,
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800',
+    image: 'https://media.istockphoto.com/id/1349299883/photo/traditional-steak-and-mashed-potatoes.jpg?s=1024x1024&w=is&k=20&c=mqUa1HpoddzdFJO1B4TuPAG_TiXTTKAwZ7ijs5oKYSk=',
   },
   {
     id: '9',
@@ -108,25 +108,25 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Herb-roasted chicken with mixed vegetables',
     course: 'Dinner',
     price: 140,
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31d?w=800',
+    image: 'https://images.unsplash.com/photo-1615557960916-5f4791effe9d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774',
   },
 
   // Dessert (3)
   {
     id: '10',
     name: 'Chocolate Brownie',
-    description: 'Rich chocolate brownie with vanilla ice cream',
+    description: 'Rich chocolate brownie with chocolate ice cream',
     course: 'Dessert',
     price: 65,
-    image: 'https://images.unsplash.com/photo-1605475129518-76e9d8e54c13?w=800',
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687',
   },
   {
     id: '11',
     name: 'Cheesecake Slice',
-    description: 'Creamy vanilla cheesecake with strawberry topping',
+    description: 'Creamy vanilla cheesecake with blueberry topping',
     course: 'Dessert',
     price: 75,
-    image: 'https://images.unsplash.com/photo-1505253216365-197ebd06b6ab?w=800',
+    image: 'https://plus.unsplash.com/premium_photo-1723662171860-0988459c1ef4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
   },
   {
     id: '12',
@@ -134,9 +134,10 @@ const INITIAL_DISHES: MenuItem[] = [
     description: 'Vanilla ice cream topped with chocolate and nuts',
     course: 'Dessert',
     price: 55,
-    image: 'https://images.unsplash.com/photo-1589710752189-4108ce7d0689?w=800',
+    image: 'https://images.unsplash.com/photo-1657225953401-5f95007fc8e0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=869',
   },
 ];
+
 
 
 const App: React.FC = () => {
