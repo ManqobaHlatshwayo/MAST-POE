@@ -1,17 +1,58 @@
+// utils/menuStats.ts
+
 import type { MenuItem } from "../App";
 
-export function averagePriceByCourse(items: MenuItem[]): Record<string, number> {
-  const totals: Record<string, { sum: number; count: number }> = {};
-  for (const item of items) {
-    const course = item.course;
-    if (!totals[course]) totals[course] = { sum: 0, count: 0 };
-    totals[course].sum += item.price;
-    totals[course].count++;
+/**
+ * Groups menu items by course.
+ * Uses a `for` loop as required by POE criteria.
+ */
+export function groupByCourse(items: MenuItem[]) {
+  const grouped: { [course: string]: MenuItem[] } = {};
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (!grouped[item.course]) {
+      grouped[item.course] = [];
+    }
+    grouped[item.course].push(item);
   }
-  const averages: Record<string, number> = {};
-  for (const course in totals) {
-    const { sum, count } = totals[course];
-    averages[course] = Number((sum / count).toFixed(2));
+
+  return grouped;
+}
+
+/**
+ * Counts total menu items.
+ * Uses a `while` loop as required.
+ */
+export function countItems(items: MenuItem[]) {
+  let count = 0;
+  let index = 0;
+
+  while (index < items.length) {
+    count++;
+    index++;
   }
+
+  return count;
+}
+
+/**
+ * Calculates average price per course.
+ * Uses `for...in` loop as required.
+ */
+export function calculateAverages(grouped: { [course: string]: MenuItem[] }) {
+  const averages: { [course: string]: number } = {};
+
+  for (const course in grouped) {
+    const dishes = grouped[course];
+    let total = 0;
+
+    for (let i = 0; i < dishes.length; i++) {
+      total += dishes[i].price;
+    }
+
+    averages[course] = total / dishes.length;
+  }
+
   return averages;
 }
