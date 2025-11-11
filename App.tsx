@@ -5,6 +5,22 @@ import HomeScreen from './screens/HomeScreen';
 import AddDishScreen from './screens/AddDishScreen';
 import FilterScreen from './screens/FilterScreen';
 
+/*
+Code Attribution
+Author: React Native Team
+Title: Using useState for State Management
+Source: React Native Documentation
+URL: https://reactnative.dev/docs/state
+Date Accessed: 2025-01-20
+
+Code Attribution
+Author: React Navigation Community
+Title: Basic Navigation Pattern (Switching Screens)
+Source: React Navigation Concepts
+URL: https://reactnavigation.org/docs/getting-started
+Date Accessed: 2025-01-20
+*/
+
 export interface MenuItem {
   id: string;
   name: string;

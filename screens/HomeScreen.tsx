@@ -11,6 +11,22 @@ import {
 } from 'react-native';
 import { MenuItem } from '../App';
 
+/*
+Code Attribution
+Author: React Native Community
+Title: FlatList Component
+Source: React Native Official Documentation
+URL: https://reactnative.dev/docs/flatlist
+Date Accessed: 2025-01-20
+
+Code Attribution
+Author: React Native Community
+Title: TouchableOpacity Component
+Source: React Native Official Documentation
+URL: https://reactnative.dev/docs/touchableopacity
+Date Accessed: 2025-01-20
+*/
+
 interface HomeScreenProps {
   menuItems: MenuItem[];
   totalItems: number;
@@ -38,6 +54,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
       ]
     );
   };
+
 
   const renderMenuItem = ({ item }: { item: MenuItem }) => (
     <View style={styles.menuCard}>

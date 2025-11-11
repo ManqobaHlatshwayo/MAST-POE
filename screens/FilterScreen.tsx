@@ -13,6 +13,22 @@ import { Picker } from '@react-native-picker/picker';
 import type { MenuItem } from '../App';
 import { COURSES } from './AddDishScreen';
 
+/*
+Code Attribution
+Author: React Native Picker Community
+Title: @react-native-picker/picker
+Source: GitHub Repository
+URL: https://github.com/react-native-picker/picker
+Date Accessed: 2025-01-20
+
+Code Attribution
+Author: React Native Community
+Title: Array Filtering Example (Using filter())
+Source: JavaScript Array.prototype.filter() Documentation
+URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+Date Accessed: 2025-01-20
+*/
+
 interface FilterScreenProps {
   items: MenuItem[];
   onBack: () => void;
