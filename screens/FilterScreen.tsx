@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -21,11 +21,11 @@ interface FilterScreenProps {
 const FilterScreen: React.FC<FilterScreenProps> = ({ items, onBack, onDeleteItem }) => {
   const [selectedCourse, setSelectedCourse] = useState<string>('All');
 
-  const choices = useMemo(() => ['All', ...COURSES], []);
+  const courseOptions = useMemo(() => ['All', ...COURSES], []);
 
-  const data = useMemo(() => {
+  const filteredItems = useMemo(() => {
     if (selectedCourse === 'All') return items;
-    return items.filter(i => i.course === selectedCourse);
+    return items.filter(item => item.course === selectedCourse);
   }, [items, selectedCourse]);
 
   const handleDelete = (id: string, name: string) => {
@@ -56,87 +56,95 @@ const FilterScreen: React.FC<FilterScreenProps> = ({ items, onBack, onDeleteItem
 
   return (
     <View style={styles.container}>
+
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backBtn} onPress={onBack}>
           <Text style={styles.backTxt}>← Back</Text>
         </TouchableOpacity>
-        <Text style={styles.title}>Filter by Course</Text>
-        <Text style={styles.subtitle}>Show only items from a specific course</Text>
+        <Text style={styles.title}>Filter Menu</Text>
+        <Text style={styles.subtitle}>Select a course to display only relevant dishes</Text>
       </View>
 
-      <View style={styles.pickerWrap}>
+      {/* Picker */}
+      <View style={styles.pickerWrapper}>
         <Picker
           selectedValue={selectedCourse}
-          onValueChange={v => setSelectedCourse(String(v))}
+          onValueChange={(value) => setSelectedCourse(String(value))}
           style={styles.picker}
           dropdownIconColor="#FF6B35"
         >
-          {choices.map(c => (
-            <Picker.Item key={c} label={c} value={c} />
+          {courseOptions.map((course) => (
+            <Picker.Item key={course} label={course} value={course} />
           ))}
         </Picker>
       </View>
 
-      <View style={styles.listWrap}>
-        {data.length === 0 ? (
+      {/* Filtered List */}
+      <View style={styles.listContainer}>
+        {filteredItems.length === 0 ? (
           <View style={styles.empty}>
             <Text style={styles.emptyIcon}>🔎</Text>
-            <Text style={styles.emptyText}>No items match this filter.</Text>
+            <Text style={styles.emptyText}>No dishes found for this course</Text>
           </View>
         ) : (
-          <FlatList data={data} renderItem={renderItem} keyExtractor={i => i.id} />
+          <FlatList data={filteredItems} keyExtractor={(i) => i.id} renderItem={renderItem} />
         )}
       </View>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f5f5f5' },
-  header: { backgroundColor: '#FF6B35', paddingTop: 50, paddingBottom: 16, paddingHorizontal: 16 },
-  backBtn: { marginBottom: 8 },
+
+  header: {
+    backgroundColor: '#FF6B35',
+    paddingTop: 50,
+    paddingBottom: 16,
+    paddingHorizontal: 16,
+  },
+  backBtn: { marginBottom: 6 },
   backTxt: { color: '#fff', fontSize: 16 },
   title: { color: '#fff', fontSize: 24, fontWeight: 'bold' },
   subtitle: { color: '#FFE5D9', marginTop: 4 },
-  pickerWrap: {
-    backgroundColor: '#fff',
-    margin: 16,
-    borderRadius: 10,
-    borderColor: '#eee',
+
+  pickerWrapper: {
     borderWidth: 1,
-    overflow: 'hidden',
+    borderColor: '#ddd',
+    borderRadius: 8,
+    backgroundColor: '#f9f9f9',
+    margin: 16,
+    height: 55,
+    justifyContent: 'center',
   },
-  picker: { height: 54 },
-  listWrap: { flex: 1, paddingHorizontal: 16, paddingBottom: 16 },
+  picker: { height: 55, color: '#333' },
+
+  listContainer: { flex: 1, paddingHorizontal: 16 },
+
   card: {
     backgroundColor: '#fff',
     borderRadius: 10,
     marginTop: 12,
     overflow: 'hidden',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 1 },
-    shadowRadius: 3,
+    elevation: 3,
   },
   image: { width: '100%', height: 180 },
   cardBody: { padding: 12 },
   row: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  name: { fontSize: 18, fontWeight: 'bold', color: '#333', flex: 1, marginRight: 8 },
+  name: { fontSize: 18, fontWeight: 'bold', color: '#333' },
   tag: { backgroundColor: '#FFE5D9', color: '#FF6B35', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12 },
-  desc: { color: '#666', marginTop: 6, marginBottom: 8, lineHeight: 20 },
+
+  desc: { color: '#666', marginTop: 6, marginBottom: 8 },
   price: { color: '#FF6B35', fontSize: 16, fontWeight: 'bold' },
+
   deleteBtn: { backgroundColor: '#ff4444', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 6 },
   deleteTxt: { color: '#fff', fontWeight: 'bold', fontSize: 12 },
-  empty: {
-    backgroundColor: '#fff',
-    paddingVertical: 40,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  emptyIcon: { fontSize: 40, marginBottom: 6 },
-  emptyText: { color: '#666' },
+
+  empty: { alignItems: 'center', marginTop: 40 },
+  emptyIcon: { fontSize: 40, marginBottom: 10 },
+  emptyText: { color: '#777', fontSize: 16 },
 });
 
 export default FilterScreen;
